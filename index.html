@@ -50,6 +50,16 @@
                     this.state = {
                         count : 0,
                     }
+
+                    this.increase = this.increase.bind(this);
+                }
+
+                increase(e) {
+                    this.setState((prevState) => {
+                        return {
+                            count: prevState.count + 1,
+                        }
+                    })
                 }
 
                 render() {
@@ -76,7 +86,12 @@
                     return (
                         <div style={backgroundStyle}>
                             <Counter display = {this.state.count} />
-                            <button style={buttonStyle}> + </button>
+                            <button 
+                                style={buttonStyle}
+                                onClick={this.increase}
+                            > 
+                                + 
+                            </button>
                         </div>
                     )
                 }
