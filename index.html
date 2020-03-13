@@ -55,10 +55,17 @@
                 }
 
                 increase(e) {
-                    this.setState((prevState) => {
-                        return {
-                            count: prevState.count + 1,
-                        }
+
+                    var difference = 0;
+
+                    if (e.shiftKey) {
+                        difference = 10;
+                    } else {
+                        difference = 1;
+                    }
+
+                    this.setState({
+                        count: this.state.count + difference
                     })
                 }
 
